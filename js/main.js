@@ -110,14 +110,135 @@ $(document).ready(function(){
     var lowRegStr = parola.toLowerCase();
     var reverseStr = lowRegStr.split('').reverse().join('');
     console.log(reverseStr);
+
+
+
+
+// 1)
+// Generatore di “nomi cognomi” casuali: prendendo una lista
+// di nomi e una lista di cognomi, Gatsby vuole generare una
+// falsa lista di 3 invitati.
+// 2)
+// Crea un array di numeri interi e fai la somma di tutti gli
+// elementi che sono in posizione dispari
+// 3)
+// Crea due array che hanno un numero di elementi diversi.
+// Aggiungi elementi casuali all’array che ha meno elementi,
+// fino a quando ne avrà tanti quanti l’altro.
+// 4)
+// Scrivi una funzione che fonda due array (aventi lo stesso
+// numero di elementi) prendendo alternativamente gli
+// elementi da uno e dall’altro
+// es. [a,b,c], [1,2,3] → [a,1,b,2,c,3].
+// 5)
+// Scrivi una funzione che accetti tre argomenti:
+// un array e due numeri (“a” più piccolo di “b” e “b” grande al
+// massimo quanto il numero di elementi dell’array).
+// La funzione ritornerà un nuovo array con i valori che
+// hanno la posizione compresa tra “a” e “b”
+
+// 1
+var nomi = [
+{
+    "nome": "dario"
+},
+{
+    "nome": "marco"
+},
+{
+    "nome": "franco"
+}, 
+{
+    "nome": "nico"
+}, 
+{
+    "nome": "salvatore"
+},
+];
+var cognomi = [
+{
+    "cognome" : "rossi"
+}, 
+{
+    "cognome" : "verdi"
+},
+{ 
+    "cognome": "gialli"
+},
+{
+    "cognome" :  "neri"
+},
+{
+    "cognome" :  "viola"
+},
+];
+
+nm = Math.floor(Math.random()*(nomi.length - 1));
+cgnm = Math.floor(Math.random()*(cognomi.length - 1));
+
+console.log(nm);
+console.log(cgnm);
+
+console.log((nomi[nm]["nome"]) + " " + (cognomi[cgnm]["cognome"]));
+
+
+// 2
+    var intArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var res = 0
+    for ( var i = 0 ; i < intArray.length; i++){
+        if (intArray[i] % 3 == 0 ) {
+            var num = intArray[i];
+            var res = res + num; 
+        }       
+   }
+    console.log(parseInt(res));
+
+// 3
+   var belli = [1, 2, 3, 4];
+   var brutti = [5, 6, 7, 8, 9, 10];
+
+   if (belli.length < brutti.length) {
+        arrayPush(belli, brutti); 
+   } else if (arrayPrim.length > arraySec.length) {
+        arrayPush(brutti, belli);    
+   }
+   console.log(belli);
+   console.log(brutti);
+// 4
+   var lettere = ["a", "b", "c"];
+   var numeri = [1, 2, 3];
+   var shuffle = [];
+   shuffle(lettere, numeri, shuffle);
+   console.log(shuffle);
+// 5
+
 });
+
+
+// funzioni
+
+function shuffle(l, n, s){
+    var s = [];
+    for ( i = l.length; i > s.length; i-- ) {     
+        s.push(l[i]);
+        for ( i = n.length; i > s.length; i--) {
+            s.push(n[i]);
+        }
+    } return s;
+};
+
+function arrayPush(primoArray, secondoArray){
+    for ( i = primoArray.length; i < secondoArray.length; i++ ) {
+        primoArray.push(Math.floor(Math.random()*(100 - 1 + 1 ))) +1;
+    };
+};
 
 function peso(tot, array){
     for (var key in array) {
         tot = tot + array[key].peso;
     }; 
     return tot;
-}
+};
 
 function reverse(wrds) {
     var lowRegStr = wrds.toLowerCase();
